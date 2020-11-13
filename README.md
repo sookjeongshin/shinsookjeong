@@ -1,6 +1,10 @@
+20201116(월) 작업예정
+HomeController.java 분석 후 수정
+파스타 클라우드에 스프링MVC프로젝트 올리기 후 도메인으로 접속 확인예정.
+http://kimilguk.paas-ta.org/ 접속확인예정.
 #### 20201113(금)
 - 스프링 MVC구조 중 Controller 단 HomeController.jaca 자바클래스를 분석해 보겠습니다.
-===========================================
+==============MVC구조중 컨트롤러단 분석(아래)===============
 - HomeController 분석해 봅니다.
 - 자바주석: 2가지(아래)
 - 1줄 주석: //로 시작
@@ -8,7 +12,7 @@
 - import: 임포트지시어 외부 라이브러리 (모듈) 클래스 가져다가 사용하는 목적.
 - 추가로 @import jsp에서 외부 라이브러리(모듈) 클래스 가져다가 사용할때 사용.
 - package: 패키지(묶음, 짐보따리) 자바소스코드(클래스)를 관리하기 위해서 만든 영역.(도메인 구조와 유사.
--http"//controller.edu.org <-> org.edu.controller
+-http://controller.edu.org <-> org.edu.controller
 - org.edu.controller 클래스를 초기에 프로젝트 생성할 때 만들었습니다.
 - java 폴더클래스루트입니다.
 - java. 폴더안에 org 폴더안.edu 폴더안.controller 폴더 안쪽에 자바소스코드(자바클래스파일)이 생성됩니다.
