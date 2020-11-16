@@ -10,8 +10,8 @@
 <h1>
 	Hello world! 신숙정 입니다.
 </h1>
-<p> <c:out value="${serverTime}"></c:out>
+<p> <c:out value="${TomcatserverTime}"></c:out>
 <!--c:out 태그를 사용하는 이유는 해킹 방지용으로 필요합니다. 시큐어코딩(보안코딩)  --> 
-<P>  현재 서버의 시간은 ${serverTime}
+<P>  현재 서버의 시간은 ${TomcatserverTime}
 <script>alert('메롱');</script> 입니다. </P>
 </html>
