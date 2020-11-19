@@ -3,9 +3,15 @@
 <head><!-- 문서내용x 문서정보 데이터의데이터 존재 -->
 <meta charset="UTF-8"><!-- 문서의언어 -->
 <title>반응형 홈페이지</title><!-- 문서의제목 브라우저상단표시 -->
+<!-- span태그 자리를 차지하지 않는 영역= 한뼘, px 픽셀 화면에 표시되는 크기의 단위 -->
+<!-- :콜론(속성:값, key:value) ;세미콜론(문장의 끝) -->
 <style>
 /* 모바일용 스타일지정 시작 */
-
+#header span {
+display:block;height:10px;width:50px;background-color:red;
+margin-bottom:10px;
+}
+#wrap .slider img {width: 100%}/* Cascade Style Sheet 특징 계단형 스타일지정
 /* 모바일용 스타일지정 끝*/
 </style>
 <script type="/* 자바스크립트 시작*/
@@ -13,26 +19,36 @@
 /*자바스크립트 끝*/"></script>
 </head>
 <body><!-- 문서내용이 들어가는 영역 -->
-<div id= "wrap">
-<header>
+<div id= "wrap"><!-- 랩핑시킨 영역 -->
+<header id= header>
 <!-- 상단 로고와 햄버거 메뉴영역 시작 -->
-LOGO
-햄버거메뉴 이미지
-HOME
-WE ARE
-WORK
-BLOG
-CONTACT US
+<h1>LOGO</h1><!-- 헤드라인 글자를 표시 h1 h6 -->
+<span></span>
+<span></span>
+<span></span>
+<!-- 리스트를 모여주는 태그 ul(UnOrdered List *.~, *.~) , ol(Orderd List 1.~, 2.~ ) -->
+<ul>
+<li>HOME</li>
+<li>WE ARE</li>
+<li>WORK</li>
+<li>BLOG</li>
+<li>CONTACT US</li>
+</ul>
 <!-- 상단 로고와 햄버거 메뉴영역 끝 -->
 </header>
 <section>
 <!-- 본문 슬라이드 영역 시작 -->
-
+<!-- 이미지를 불러오는 태그 img -->
+<!-- 경로:상대(./img), 절대경로(/resources/sample/img/...) -->
+<!-- 태그안쪽에 지정한 스타일을 인라인스타일 -->
+<div class="slider">
+<img alt="고양이 이미지입니다." src="/resources/sample/img/cat.jpg">
+</div>
 <!-- 본문 슬라이드 영역 끝 -->
 </section>
 <footer>
 <!-- 하단 로고 영역 시작 -->
-
+LOGO
 <!-- 하단 로고 영역 끝 -->
 </footer>
 </div>
