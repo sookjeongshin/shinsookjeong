@@ -79,13 +79,14 @@ text-align: center;
 .weare-header {
 margin-top:30px;
 text-align:center;
+font-size:50px
 }
 .section-title {
 margin-bottom:30px;
-font-size:42px;
+font-size:40x;
 color:#3f51b5;
 font-weight:normal;
-letter-spacing:5px;/*글자사이 간격주가*/
+letter-spacing:20px;/*글자사이 간격주가*/
 } 
 .weare-header p {
 color:#616161;
@@ -97,7 +98,7 @@ margin-top:68px;
 }
 .weare-body li {
 text-align:center;
-margin-top:50px;
+margin-top:20px;
 }
 .weare-body li img {
 height:220px;
