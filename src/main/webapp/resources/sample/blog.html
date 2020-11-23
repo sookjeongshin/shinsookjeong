@@ -12,11 +12,44 @@
 <!-- span태그 자리를 차지하지 않는 영역 = 한뼘 , px 픽셀 화면에 표시되는 크기의 단위 -->
 <!-- :콜론(속성:값, Key:Value), ;세미콜론(문장의 끝) -->
 <style>
-
+/*블로그 영역 시작*/
+.blog-section {
+margin-top:30px;
+}
+.blog-section h1{
+text-align:center;
+font-size:30px;
+color:#3f51b5;
+}
+.blog-section .container{
+width:90%;margin:0 auto;
+} /*현재 영역을 가운데 정렬시 matgin:0 auto; 좌우로 5%가 자동으로 잡힘*/
+.blog-section li {
+margin-top:30px;
+}
+.blog-section li img {
+width:100%;
+}
+.blog-section li time {
+display block;
+matgin:10px 0px;
+font-size:12px;
+color:#888;
+}
+.blog-section li h2 {
+color:#424242;
+font-weight:normal;
+line-height:1.6;/*줄간격단위는 현재 글자크기의 1.6배*/
+}
+/*recet.css 에서 hr태그를 display:none; 적용했기 때문에, 특별히 .blog영역에서만 hr 적용*/
+.blog-section hr {display:block; height:1px; background:#3f51b5; }
+/*블로그 영역 끝*/
+</style>
+<style>
+/*블로그 영역 시작*/
 </style>
 <script>
 /* 자바스크립트 시작 */
-
 /* 자바스크립트 끝 */
 </script>
 </head>
@@ -32,7 +65,6 @@
 <span></span>
 <span></span>
 </div>
-
 <!-- html5 시만텍 웹 = 의미가 있는 태그를 사용하게 해서 AI가 인식하게 됩니다. nav태그 -->
 <nav class="gnb"><!-- gnb:글로벌네이게이션:전체영역메뉴  Global Navigagion -->
 <!-- 리스트를 모여주는 태그 ul(UnOrdered List *.~, *.~ ) , ol(Ordered List 1.~, 2.~ ) -->
@@ -47,83 +79,37 @@
 <!-- 상단 로고와 햄버거 메뉴영역 끝 -->
 </header>
 
-<section class="work-section"><!-- division디비전이라는 div 영역표시 태그 대신에 사용 -->
-<h1 class="section-title">WORK</h1>
+<section class="blog-section"><!-- division디비전이라는 div 영역표시 태그 대신에 사용 -->
+<h1>BLOG</h1>
+<div class="container">
 <ul>
-<li><!-- 아래 a링크의 title속성은 시각장애인을 위한(웹접근성을 위한) 코딩입니다. -->
-<a href="javascript:;" title="겔러리게시판2의 이미지1번입니다.">
-<div class="info">
-<h2>겔러리제목1</h2>
-<p>겔러리게시물1번의 내용입니다. 여러분 환영...</p>
-</div>
-<img src="/resources/sample/img/cat2.png" alt="겔러리게시판2이미지1">
-</a>
-</li>
-<li>
-<a href="javascript:;">
-<div class="info">
-<h2>겔러리제목2</h2>
-<p>겔러리게시물2번의 내용입니다. 여러분 환영...</p>
-</div>
-<img src="/resources/sample/img/cat2.png" alt="겔러리게시판2이미지2">
-</a>
-</li>
-<li>
-<a href="javascript:;">
-<div class="info">
-<h2>겔러리제목3</h2>
-<p>겔러리게시물3번의 내용입니다. 여러분 환영...</p>
-</div>
-<img src="/resources/sample/img/cat2.png" alt="겔러리게시판2이미지3">
-</a>
-</li>
-<li>
-<a href="javascript:;">
-<div class="info">
-<h2>겔러리제목4</h2>
-<p>겔러리게시물4번의 내용입니다. 여러분 환영...</p>
-</div>
-<img src="/resources/sample/img/cat2.png" alt="겔러리게시판2이미지4">
-</a>
-</li>
-<li>
-<a href="javascript:;">
-<div class="info">
-<h2>겔러리제목5</h2>
-<p>겔러리게시물5번의 내용입니다. 여러분 환영...</p>
-</div>
-<img src="/resources/sample/img/cat2.png" alt="겔러리게시판2이미지5">
-</a>
-</li>
-<li>
-<a href="javascript:;">
-<div class="info">
-<h2>겔러리제목6</h2>
-<p>겔러리게시물6번의 내용입니다. 여러분 환영...</p>
-</div>
-<img src="/resources/sample/img/cat2.png" alt="겔러리게시판2이미지6">
-</a>
-</li>
-<li>
-<a href="javascript:;">
-<div class="info">
-<h2>겔러리제목7</h2>
-<p>겔러리게시물7번의 내용입니다. 여러분 환영...</p>
-</div>
-<img src="/resources/sample/img/cat2.png" alt="겔러리게시판2이미지7">
-</a>
-</li>
-<li>
-<a href="javascript:;">
-<div class="info">
-<h2>겔러리제목8</h2>
-<p>겔러리게시물8번의 내용입니다. 여러분 환영...</p>
-</div>
-<img src="/resources/sample/img/cat2.png" alt="겔러리게시판2이미지8">
-</a>
-</li>
+	<li>
+	<a href="javascript:;">
+	<img src="/resources/sample/img/cat4.png" alt="블로그이미지1">
+	<time datetime="2020-11-23">2020-11-23</time>
+	<h2>블로그게시물제목1</h2>
+	</a>
+	</li>
+	<hr><!-- horizontal 수평선 태그 -->
+	<li>
+	<a href="javascript:;">
+	<img src="/resources/sample/img/cat4.png" alt="블로그이미지2">
+	<time datetime="2020-11-23">2020-11-23</time>
+	<h2>블로그게시물제목2</h2>
+	</a>
+	</li>
+	<hr><!-- 수평선 태그 -->
+	<li>
+	<a href="javascript:;">
+	<img src="/resources/sample/img/cat4.png" alt="블로그이미지3">
+	<time datetime="2020-11-23">2020-11-23</time>
+	<h2>블로그게시물제목3</h2>
+	</a>
+	</li>
 </ul>
+</div>
 </section>
+</div>
 
 <footer class="footer">
 <!-- 하단 로고 영역 시작 -->
