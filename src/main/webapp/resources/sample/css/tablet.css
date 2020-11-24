@@ -1,0 +1,31 @@
+@charset "UTF-8";
+@media all and (min-width:768px) {
+	
+/*헤드영역 시작*/
+.menu-toggle-btn {display:none;}
+.header .gnb {
+display:block;
+position:static; /*absolute ->static (기본)*/
+background:none;
+width:auto;
+float:right; /*가로위치를 오른쪽으로 변경*/
+matgin-top:10px;
+}
+.header .gnb li {
+float:left;
+border:none;
+width:95px;
+}
+.header .gnb li:last-child {border-bottom:none;}
+.header .gnb li a{
+display:inline-block;/*컨텐츠내용만큼만 자리차지*/
+color:#3f15b5;
+}
+.header .gnb li a:hover {text-decoration:none;}
+/*헤드영역 끝*/
+/*슬라이드영역 시작*/
+.carousel-item, .carousel-item img {height:500px;}
+/*슬라이드영역 끝*/
+
+	
+	}
