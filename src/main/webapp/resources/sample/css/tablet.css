@@ -1,4 +1,5 @@
 @charset "UTF-8";
+body:{background:#ccc;}
 @media all and (min-width:768px) {
 	
 /*헤드영역 시작*/
@@ -9,7 +10,7 @@ position:static; /*absolute ->static (기본)*/
 background:none;
 width:auto;
 float:right; /*가로위치를 오른쪽으로 변경*/
-matgin-top:10px;
+margin-top:10px;
 }
 .header .gnb li {
 float:left;
@@ -27,5 +28,40 @@ color:#3f15b5;
 .carousel-item, .carousel-item img {height:500px;}
 /*슬라이드영역 끝*/
 
-	
-	}
+
+/*we are 영역 시작*/
+.float-clear {clear:both;}/*clear속성은 float작동을 없애는 역할 7.812498 + 94.4166 = 102.xx */
+.weare-body li {
+float:left;/*세로정렬을 가로정렬로 변경 부트스트랩의 그리드시스템 col-12(100%),col-3,col-3,col-3,col-3)의 원형 */
+width:23.046875%;/*(177포토샵레이아웃의가로값 / 768)x100 = 몇%*/
+margin-left:2.604166%;/*(20포토샵레이아웃의여백값/768)x100 = 몇%*/
+overflow:hidden;/*반응형list박스에서 가로크기를 벗어나는 이미지 내용은 숨김처리*/
+}
+.weare-body li img {width:100%;height:auto;}
+.weare-body {
+margin:10px 3%;}/*가운데 정렬 10px상하 3%좌우여백*/
+.weare-body li:first-child {
+margin-left:0px;
+}
+/*we are 영역 끝*/
+
+/*work 영역 시작*/
+	.work-section li{
+	float:left;
+	width:50%;
+}
+/*work영역 끝*/
+
+/*blog영역 시작*/
+.blog-section li {
+float:left; /*세로배치3개가 가로배치로 변함*/
+width:31.59722222222%; /*3개중 1개의 가로크기(242px/768px)*100 = 31.59722222222%*/
+margin-left:2.60416666666%; /*1개 여백구하기 (20px/768)*100=2.60416666666 %*/
+}
+.blog-section li:first-child{
+margin-left:0px;
+}
+.blog-section hr {display:none;}
+
+/*blog영역 끝*/
+}
