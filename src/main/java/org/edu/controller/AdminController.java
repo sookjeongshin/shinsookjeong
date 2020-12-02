@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AdminController {
 	
+	@RequestMapping(value="/admin/board_list",method=RequestMethod.GET)
+	public String board_list() {
+		return "admin/board/board_list";
+	}
 	
 	@RequestMapping(value="admin/member_write",method=RequestMethod.POST)
 	public String member_write_do() {

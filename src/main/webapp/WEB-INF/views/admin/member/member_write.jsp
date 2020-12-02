@@ -31,7 +31,7 @@
    	   <div class="row">
           <div class="col-12"><!-- 부트스트랩의 디자인 클래스 row -->
     		 <!-- form start -->
-              <form name="write_form" action="member_list.html" method="post">
+              <form name="write_form" action="/admin/member_write" method="post">
               
 			<div class="card card-primary">
               <div class="card-header">
@@ -80,15 +80,12 @@
              
  
             </div>
-              <!-- /.버튼영역시작 -->
-      
-  			    <!-- 버튼영역 -->
-  		       <div class="card-body">
-           	   <a href="member_list.html" class="btn btn-primary float-right mr-1">LIST-ALL</a>
-       	       <button type="submit" class="btn btn-danger float-right mr-1 ">SUBMIT</button>
-       	       <!-- 부트스트랩 디자인 버튼클래스를 이용해서 a태그를 버튼모양 만들기(위) -->
-       	       <!-- btn클래스명이 버튼모양으로 변경, btn-primary클래스명은 버튼색상을 변경하는 역할 -->
-        	            </div>
+          <!-- 버튼영역 시작 -->
+            <div class="card-body">
+            	<a href="/admin/member_list" class="btn btn-primary float-right mr-1">LIST ALL</a>
+              	<button type="submit" class="btn btn-danger float-right mr-1">SUBMIT</button>              	
+              	<!-- a태그는 링크이동은 되지만, post값을 전송하지는 못합니다. 그래서, button태그를 사용. -->
+            </div>
           <!-- 버튼영역 끝 -->
           
           </form>

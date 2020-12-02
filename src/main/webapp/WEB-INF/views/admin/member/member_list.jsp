@@ -18,7 +18,7 @@
                                       <div class="input-group input-group-sm">    
                         <!-- 부트스트랩 템플릿만으로는 디자인처리가 있기 때문에 위와 같은 인라인 스타일 사용 -->
                        <div>
-                            <select class="form-control" >
+                            <select name="search_type" class="form-control">
                                 <option value="" selected>-전체-</option>
                                 <option value="user_id"  data-select2-id="8">ID</option>
                                 <option value="user_name" data-select2-id="16">이름</option>
@@ -51,8 +51,8 @@
                     </tr>
                   </thead>
                   <tbody>
-                   <tr onclick="javascript:location.href='member_view.html?user_id=admin';" style="cursor:pointer;">
-                      <td><a href="member_view.html?user_id=admin">admin</a></td>
+                   <tr onclick="javascript:location.href='/admin/member_view?user_id=admin';" style="cursor:pointer;">
+                      <td><a href="/admin/member/member_view?user_id=admin">admin</a></td>
                       <!-- 위에 a링크값은 리스트가 늘어날 수록 동적으로 user_id값이 변하게 됩니다. 개발자가 jsp로 처리 -->
                       <td>관리자</td>
                       <td>admin@abc.com</td>
@@ -62,7 +62,7 @@
                       <!-- 권한표시는 부트스트랩 뱃지 클래스 사용 -->
                     </tr>
                      <tr>
-                      <td><a href="member_view.html?user_id=user">user</a></td>
+                      <td><a href="/admin/member_view?user_id=user">user</a></td>
                       <td>사용자</td>
                       <td>user@abc.com</td>
                       <td>false</td>
@@ -80,7 +80,7 @@
             
              <!-- 버튼영역 -->
               <div class="card-body" >
-              <a href="member_write.html" class="btn btn-primary float-right">CREATE</a>
+              <a href="/admin/member_write" class="btn btn-primary float-right">CREATE</a>
               <!-- 부트스트랩 디자인 버튼클래스를 이용해서 a태그를 버튼모양 만들기(위) -->
               <!-- btn클래스명이 버튼모양으로 변경, btn-primary클래스명은 버튼색상을 변경하는 역할 -->
                  	<!-- 
