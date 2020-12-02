@@ -19,10 +19,12 @@
 <link rel="stylesheet" href="/resources/sample/css/reset.css" type="text/css">
 <link rel="stylesheet" href="/resources/sample/css/mobile.css" type="text/css">
 <link rel="stylesheet" href="/resources/sample/css/tablet.css" type="text/css">
-<link rel="stylrsheet" href="/resources/sample/css/pc.css" type="text.css">
+<link rel="stylesheet" href="/resources/sample/css/pc.css" type="text/css">
 <!-- span태그 자리를 차지하지 않는 영역 = 한뼘 , px 픽셀 화면에 표시되는 크기의 단위 -->
 <!-- :콜론(속성:값, Key:Value), ;세미콜론(문장의 끝) -->
 <style>  
+@media all and (min-width:1132px) {
+}
 /*여기까지는 모바일용 아래부터는 반응형 (태블릿용, PC용) @미디어쿼리사용*/
 /*@미디어쿼리사용-메타태그viewport값필수*/
 </style>

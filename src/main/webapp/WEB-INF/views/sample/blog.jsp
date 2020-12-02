@@ -8,7 +8,7 @@
 <ul>
 	<li>
 	<a href="javascript:;">
-	<div class="preview"><img src="/resources/sample/img/cat.jpg" alt="블로그이미지1"></div>
+	<div class="preview"><img src="/resources/sample/img/cat3.jpg" alt="블로그이미지1"></div>
 	<div class="info2">
 	<time datetime="2020-11-23">2020-11-23</time>
 	<h2>블로그게시물제목1</h2>
@@ -30,7 +30,7 @@
 	
 	<li>
 	<a href="javascript:;">
-	<div class="preview"><img src="/resources/sample/img/cat3.jpg" alt="블로그이미지3"></div>
+	<div class="preview"><img src="/resources/sample/img/cat.jpg" alt="블로그이미지3"></div>
 	<div class="info2">
 	<time datetime="2020-11-23">2020-11-23</time>
 	<h2>블로그게시물제목3</h2>
@@ -41,7 +41,7 @@
 	
 	<li>
 	<a href="javascript:;">
-	<div class="preview"><img src="/resources/sample/img/cat.jpg" alt="블로그이미지1"></div>
+	<div class="preview"><img src="/resources/sample/img/cat3.jpg" alt="블로그이미지1"></div>
 	<div class="info2">
 	<time datetime="2020-11-23">2020-11-23</time>
 	<h2>블로그게시물제목1</h2>
@@ -63,7 +63,7 @@
 	
 	<li>
 	<a href="javascript:;">
-	<div class="preview"><img src="/resources/sample/img/cat3.jpg" alt="블로그이미지3"></div>
+	<div class="preview"><img src="/resources/sample/img/cat.jpg" alt="블로그이미지3"></div>
 	<div class="info2">
 	<time datetime="2020-11-23">2020-11-23</time>
 	<h2>블로그게시물제목3</h2>
