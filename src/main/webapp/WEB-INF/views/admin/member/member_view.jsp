@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <!-- jstl은 jsp의 표준태그 라이브러리 입니다. jaca standard tag library -->
+
 <%@ include file="../include/header.jsp"%>
 
   <!-- 대시보드 본문 Content Wrapper. Contains page content -->
@@ -40,7 +43,8 @@
                 <strong><i class="fas fa-book mr-1"></i> user id</strong>
 
                 <p class="text-muted">
-                admin
+                <%--${user_id2} --%>
+				<c:out value="$user_id2}"></c:out>
                 </p>
 
                 <hr><!-- 수평선 태그 -->

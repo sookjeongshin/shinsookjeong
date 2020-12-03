@@ -1,8 +1,10 @@
 package org.edu.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 //스프링에서 사용가능한 클래스를 빈(커피bean)라고 하고, @controller클래스를 사용하면 됨.
 @Controller
 public class AdminController {
@@ -24,8 +26,9 @@ public class AdminController {
 	return "admin/member/memeber_write";
 }
 	@RequestMapping(value="/admin/member/member_view", method=RequestMethod.GET)
-public String member_view() {
-	 return "admin/member/member_view";
+public String member_view(@RequestParam("user_id") String user_id, Model model) {
+	model.addAttribute("user_id2", user_id + "<script>alert('메롱');</script>");
+		return "admin/member/member_view";
 }
 
 	@RequestMapping(value="/admin/member/member_list", method=RequestMethod.GET)
