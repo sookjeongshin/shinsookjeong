@@ -56,16 +56,27 @@
 <script>
 $(document).ready(function(){
 	//현재 선택된 URL 값을 가져오는 명령(아래)
-	var current = location.pathname;
-	var current_2 = current.split("/",3)[1];//split함수로 current에있는 문자를 분리
-	alert(current_2);
-	//alert(current);//admin(관리자홈),admin/member_list(관리자관리),
+	var current = location.pathname;//corrent변수저장소에서 board를 클릭했는지, memeber 클릭한 내용 확인
+	var current_2 = current.split("/")[2];//split함수로 current에있는 문자를 분리
+	//alert(current_2);//디버그용
+	//alert(current);//admin(대시보드_undifiend),admin/member_list(관리자관리),
 	//admin/board_list(게시물관리)
 	//active클래스명을 동적으로 추가할 영역은 nav-item 안쪽의 a 태그의 클래스명을 추가하면 됨.
 	$(".nav-treeview li a").each(function(){
-		
-	});//each함수로 a태그 2개를 찾는 명령.
+			if( $(this). attr('href') .indexOf(current_2) !== -1) { //위 문제를 처리하는 대체 함수 indexOf사용}
+			$this.addClass("active"); //선택한 메뉴의 배경색상을 흰색으로 보이게 추가하는 처리
+			} else { 
+			$(this). removeClass("active"); //선택한 메뉴의 배경상 흰색을 제거하는 처리.
+					}
+	});
 });
+//사용한 includes함수는 크롬에서만 작동이 되어서 IE에서는 작동이 안됨. 크로스브라우징처리를 해줘야 함.
+
+//each함수로 a태그 2개를 찾는 명령. 결과는2개, 2번반복
+//$(this)  현재함수의 구현 대상 본인을 가르킨다.
+//2개의 값을 비교1: -a 태그의 값 /admin/member_list,/admin/board_list
+//2개의 값을 비교2: current_2(현재 웹브라우저의 URL값중 제일 만지막 값)
+//if( $(this).attr('href') .includes(current_2) == true) { //includes 포함하고 있는 문자열을 비교
 </script>
 </body>
 </html>
