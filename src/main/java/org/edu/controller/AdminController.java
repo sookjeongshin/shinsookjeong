@@ -32,8 +32,13 @@ public String member_view(@RequestParam("user_id") String user_id, Model model) 
 }
 
 	@RequestMapping(value="/admin/member/member_list", method=RequestMethod.GET)
-public String member_list() {
-	return "admin/member/member_list";
+public String member_list(Model model) {
+	String[][]members = {
+			{"admin","찐관리자","admin@abc.com","2020-12-04","ROLE_ADMIN"},
+			{"user","일반사용자","user@abc.com","false","2020-12-04","ROLE_USER"}
+	};
+	model.addAttribute("members", members);
+	return "admin/member/member_list";//member_list.jsp에 members변수명으로 데이터를 전송
 }
 
 //bind 묶는다 admin요청경로 url과 admin/home jsp묶기
