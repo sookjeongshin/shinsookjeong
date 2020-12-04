@@ -15,7 +15,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="admin/member/member_write",method=RequestMethod.POST)
-	public String member_write_do() {
+	public String member_write_do(@RequestParam("user_name")String user_name) {
 		//아래 GET방식 폼출력화면에서 데이터 전송받은 내용을 처리하는 바인딩.
 		//DB베이스 입력/출력/삭제/수정 처리-다음에...
 		return "redirect:/admin/member/member_list";//절대경로로 처리 후 이동할 URL주소를 여기에 반환
