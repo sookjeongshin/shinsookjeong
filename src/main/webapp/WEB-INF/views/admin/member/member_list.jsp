@@ -46,20 +46,20 @@
                       <th>user_id</th><!-- 타이틀 헤드 타이틀태그 -->
                       <th>User_name[point]</th>
                       <th>email</th>
-                      <th>use</th>
-                      <th>regdate</th>
+                      <th>enabled</th>
+                      <th>reg_date</th>
                       <th>levels</th>
                     </tr>
                   </thead>
                   <tbody>
                   <c:forEach items= "${members}" var="member">  
                   <tr>
-                  <td><a href="/admin/member/member_view?user_id=$member[0]">${member[0]}</a></td>
+                  <td><a href="/admin/member/member_view?user_id=${member.user_id}">${member[0]}</a></td>
                       <!-- 위에 a링크값은 리스트가 늘어날 수록 동적으로 user_id값이 변하게 됩니다. 개발자가 jsp로 처리 -->
-                      <td>${member[1]}</td>
-                      <td>${member[2]}</td>
-                      <td>$[member[3]}</td>
-                      <td>${member[4]}</td>
+                      <td>${member.user_name}[${member.point}]</td>
+                      <td>${member.email}</td>
+                      <td>$[member.enabled}</td>
+                      <td>${member.reg_date}</td>
                       <td><span class="badge bg-danger">${member[5]}</span></td>
                       <!-- 권한표시는 부트스트랩 뱃지 클래스 사용 -->
                     
