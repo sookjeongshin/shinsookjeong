@@ -12,7 +12,7 @@ public class ExceptionTest {
 		MemberVO memberVO = new MemberVO();
 		memberVO.setUser_id("shinsookjeong");
 		memberVO.setUser_name("신숙정");
-		memberVO.setEmail("sookjeongshin@aaa.com");
+		memberVO.setEmail("sookjeongshin@abc.com");
 		System.out.println("회원정보 클래스의 메머변수 값들을 출력하기="
 		+ memberVO.getUser_name()
 		+ memberVO.toString()

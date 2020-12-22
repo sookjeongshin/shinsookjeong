@@ -41,13 +41,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="/resources/sample/img/cat4.jpg" class="d-block w-100" alt="...">
+      <img src="/resources/sample/img/cat3.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="/resources/sample/img/cat2.png" class="d-block w-100" alt="...">
+      <img src="/resources/sample/img/cat2.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="/resources/sample/img/cat.png" class="d-block w-100" alt="...">
+      <img src="/resources/sample/img/cat.jpg" class="d-block w-100" alt="...">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

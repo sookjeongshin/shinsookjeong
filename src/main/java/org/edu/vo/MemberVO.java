@@ -2,11 +2,14 @@ package org.edu.vo;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
 /**
  * 회원정보관리용 클래스
  * @author 
  *
  */
+@Component
 public class MemberVO {
 	//멤버변수 선언(클래스 전역변수)
 	private String user_id;//프라이빗: 클래스 내부에서만 사용가능, 보안때문에
@@ -74,6 +77,12 @@ public class MemberVO {
 	}
 	public void setUpdate_date(Date update_date) {
 		this.update_date = update_date;
+	}
+	@Override
+	public String toString() {
+		return "디버그 MemberVO [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", email=" + email
+				+ ", point=" + point + ", enabled=" + enabled + ", levels=" + levels + ", reg_date=" + reg_date
+				+ ", update_date=" + update_date + "]";
 	}
 	
 	
