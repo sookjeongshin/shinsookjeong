@@ -12,13 +12,15 @@ public class BoardVO {
 	private String title;
 	private String content;
 	private String writer;
-	private Date regdate;
-	private Date update_Date;
+	private Date reg_date;
+	private Date update_date;
+	private Integer view_count;
+	private Integer reply_count;
 	
 	@Override
 	public String toString() {
-		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate="
-				+ regdate + ", update_Date=" + update_Date + ", view_count=" + view_count + ", reply_count="
+		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", reg_date="
+				+ reg_date + ", update_date=" + update_date + ", view_count=" + view_count + ", reply_count="
 				+ reply_count + "]";
 	}
 	
@@ -46,17 +48,17 @@ public class BoardVO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public Date getRegdate() {
-		return regdate;
+	public Date getReg_date() {
+		return reg_date;
 	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
+	public void setReg_date(Date reg_date) {
+		this.reg_date = reg_date;
 	}
-	public Date getUpdate_Date() {
-		return update_Date;
+	public Date getUpdate_date() {
+		return update_date;
 	}
-	public void setUpdate_Date(Date update_Date) {
-		this.update_Date = update_Date;
+	public void setUpdate_date(Date update_date) {
+		this.update_date = update_date;
 	}
 	public Integer getView_count() {
 		return view_count;
@@ -70,8 +72,6 @@ public class BoardVO {
 	public void setReply_count(Integer reply_count) {
 		this.reply_count = reply_count;
 	}
-	private Integer view_count;
-	private Integer reply_count;
 	
 
 }
