@@ -18,30 +18,28 @@ memberMapper.xml: 회원관리에대한 모든 쿼리를 모아서 관리하는 
 -->
 <!-- 공통사용하는 쿼리 모음 -->
 <sql id="sqlWhere">
-<if test="search_type != '' and search_type !=null">
-	where
-	<if test="search_type == 'all'.toString()">
-			user_id like concat('%',#{search_keyword},'%')
-			or
-			user_name like concat('%',#{search_keyword},'%')
+	<if test="search_type != '' and search_type !=null">
+		where
+		<if test="search_type == 'all'.toString()">
+				user_id like concat('%',#{search_keyword},'%')
+				or
+				user_name like concat('%',#{search_keyword},'%')
+		</if>
+		<if test="search_type == 'user_id'.toString()">
+	 			user_id like concat('%',#{search_keyword},'%')
+	 	</if>
+	 	<if test="search_type == 'user_name'.toString()">
+	 			user_name like concat('%',#{search_keyword},'%')
+	 	</if>
 	</if>
-	<if test="search_type == 'user_id'.toString()">
- 			user_id like concat('%',#{search_keyword},'%')
- 	</if>
- 	<if test="search_type == 'user_name'.toString()">
- 			user_name like concat('%',#{search_keyword},'%')
- 	</if>
-</if>
 </sql>
 <select id="countMember" resultType="int">
-select count(*) form tbl_member
+select count(*) from tbl_member
 <include refid="sqlWhere"></include>
-
 </select>
 <select id="selectMember" resultType="org.edu.vo.MemberVO">
 select * from tbl_member
 <include refid="sqlWhere"></include>
-
 order by reg_date desc
 limit #{queryStartNo}, #{queryPerPageNum}
 </select>

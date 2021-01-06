@@ -14,11 +14,13 @@ import org.springframework.stereotype.Component;
  * @author 신숙정
  * */
 
-@Component//스프링빈 사용하겠다는 명시
-@Aspect //AOP기능을 사용하겠다는 명시
+@Component //스프링빈으로 사용하겠다는 명시
+@Aspect //AOP기능을 사용하겠다는 명시 
 public class DebugAdvice {
 	private static final Logger logger = LoggerFactory.getLogger(DebugAdvice.class);
 	/**
+	 * @throws Throwable 
+	 * @Around 애노테이션클래스는 메서드 실행에 직접 관여함.
 	 * @throws Throwable 
 	 * @Around 애노테이션클래스는 매서드 실행에 직접 관여함.
 	 * Aroun클래스타입의 파라미터(매개변수)로 ProceedingJoinPoint타입의 클래스사용
@@ -32,18 +34,17 @@ public class DebugAdvice {
 	 * 어느 메서드에서 시간 얼만큼 소요되는지 확인해야지만, 트러블 슈팅이 가능합니다.
 	 * 아래 @Around()애노테이션 클래스의 ()는 디버그 할 영역지정 
 	 */
-@Around	("excution(* org.edu.controller.AdminController.*(..))")
-public Object timeLog(ProceedingJoinPoint pjp) throws Throwable {
-	logger.debug("AOP 디버그 시작====================");
-	long startTime = System.currentTimeMillis();//현재 컴퓨터시간을 저장하는 변수
-	logger.debug(Arrays.toString(pjp.getArgs()));//pjp클래스 매개변수 값 GET으로 가져와서 toString형변환 출력
-	//하는 이유는 현재 시간체크하는 메서드가 어떤메서드인지 눈으로 확인하려고 logger.debug로 출력 위
-	Object result = pjp.proceed();
-	long endTime = System.currentTimeMillis();
-	logger.debug(pjp.getSignature().getName() + "메서드의 실행시간은:" + (endTime-startTime));
-	logger.debug("AOP 디버그 끝=====================");
-	return result;
-}
-	
-	
+	@Around("execution(* org.edu.service.MemberService*.*(..))")
+	//@Around("execution(* org.edu.controller.AdminController.*(..))")//컨트롤러의 메서드는 실행않됨
+	public Object timeLog(ProceedingJoinPoint pjp) throws Throwable {
+		logger.info("AOP 디버그 시작=========================");
+		long startTime = System.currentTimeMillis();//현재 컴퓨터시간을 저장하는 변수
+		logger.info(Arrays.toString(pjp.getArgs()));//pjp클래스 매개변수 값 GET으로 가져와서 toString형변환 출력
+		//위는 현재 시간체크하는 메서드가 어떤메서드인지 눈으로 확인하려고 logger.debug로 출력
+		Object result = pjp.proceed();//AdminController에 있는 메서드가 실행됩니다.(시간이 소요됨)
+		long endTime = System.currentTimeMillis();//현재 컴퓨터 시간을 저장하는 변수
+		logger.info(pjp.getSignature().getName() + "()메서드명 의 실행시간은:" + (double)(endTime-startTime)/1000 + "초 입니다.");
+		logger.info("AOP 디버그 끝 ==========================");
+		return result;
+	}
 }

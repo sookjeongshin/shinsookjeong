@@ -138,7 +138,6 @@ public class PageVO {
 		this.serch_keyword = serch_keyword;
 	}
 
-
 	public int getQueryPerPageNum() {
 		return queryPerPageNum;
 	}
