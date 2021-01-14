@@ -8,6 +8,7 @@
   .header_cont {
     width: 769px;
     padding-right: 10px;
+    margin-top:0px;
   }
   .gnb li a {
     padding: 26px 40px;
@@ -147,7 +148,7 @@
     box-sizing: border-box;
     text-indent: -9999px;
     overflow: hidden;
-    border-left: 1px solid #a3a3a3;
+    left: 1px solid #a3a3a3;
     border-bottom: 1px solid #a3a3a3;
     background: url(../img/ico_totop.png) no-repeat center;
     background-size: 50%;

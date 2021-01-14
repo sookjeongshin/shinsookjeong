@@ -4,11 +4,13 @@
 body {
 	font-family: 'Nanum Gothic', '나눔 고딕', sans-serif;
 	font-size:16px;
-	letter-spacing: -1px;
-	color: #444;
-	word-wrap: break-word;
-	line-height: 1;
+	letter-spacing: -1px !important;
+	color: #444 !important;
+	word-wrap: break-word !important;
+	line-height: 1 !important;
 }
+dl, ol, ul { margin-bottom:0 !important;}
+
 /* : 가상선택자, :: 가상요소 */
 a:link {color: #444;}
 a:hover {color: #444;}
@@ -61,7 +63,7 @@ header {
 	width: 150px;
 	height: 80px;
 	background: url(../img/top_logo.png) no-repeat;
-	background-size: 60px 60px !important;
+	background-size: 100px 100px !important;
 	background-position: center center !important;
 	text-indent: -9999px;
 	overflow: hidden;
@@ -99,6 +101,7 @@ header {
 	width: 100%;
 	background: #31353d;
 	display: none;
+	margint-top:36px;
 }
 .closePop {
 	display: block;

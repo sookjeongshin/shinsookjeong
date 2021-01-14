@@ -1,4 +1,7 @@
 @charset "UTF-8";
+/*공통 영역*/
+.bbsListTbl a:hover, .pagination a:hover .bbs_title a:hover{
+	color:#000 !important;} /*a태그의 가상선택자로 hover마우스 오버시 검은색으로 변경*/
 /* 메인상단 위치표시영역 */
 .location_area {
 	height: 260px;
@@ -275,7 +278,7 @@ input:-ms-input-placeholder {
 @media all and (min-width: 801px) {
 /* 태블릿+PC용 */
 .app_list .tit_lbl {
-	width: 21%;
+	width: 20%;
 }
 .app_list .app_content {
 	width: 79%;

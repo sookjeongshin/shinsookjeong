@@ -1,57 +1,59 @@
 package kr.or.test;
 
-
 /*
  * 클래스 자료형 사용에 대해서
  * @author 신숙정*/
-class MemberVO{
+class MemberVO {
 	//
-	private String name; 
+	private String name;
 	private int age;
 	private String phoneNum;
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public int getAge() {
 		return age;
 	}
+
 	public void setAge(int age) {
 		this.age = age;
 	}
+
 	public String getPhoneNum() {
 		return phoneNum;
 	}
+
 	public void setPhoneNum(String phoneNum) {
 		this.phoneNum = phoneNum;
 	}
+
 	@Override
 	public String toString() {
 		return "디버그용MemberVO [name=" + name + ", age=" + age + ", phoneNum=" + phoneNum + "]";
 	}
-	
-	
+
 }
 
-class MemberService{
-public void printMember(MemberVO[] members) {
-	int cnt=0;
-	for(MemberVO member:members) {
-		cnt = cnt +1;
-		System.out.println(cnt + "번째 레코드는"+ member.toString());
-	}
+class MemberService {
+	public void printMember(MemberVO[] members) {
+		int cnt = 0;
+		for (MemberVO member : members) {
+			cnt = cnt + 1;
+			System.out.println(cnt + "번째 레코드는" + member.toString());
+		}
 	}
 }
 
+public class Step2 {
 
-
-public class Step2	{
-	
-
-public static void main(String[] args) {
-		// 
+	public static void main(String[] args) {
+		//
 		MemberVO memberVO = new MemberVO();
 		memberVO.setName("홍길동");
 		memberVO.setAge(45);

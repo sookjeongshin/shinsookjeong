@@ -15,17 +15,17 @@ public class FileInputOutput {
 		try {
 			fileInputStream = new FileInputStream("C:\\egov\\workspace\\shinsookjeong\\manifest.yml");
 			fileOutputStream = new FileOutputStream("C:\\egov\\workspace\\shinsookjeong\\manifest_bak.yml");
-		//for-시작값, 끝값, 증가 대신에 while (~조건동안) {구현을반복}
-		int byte_content;
-			while((byte_content = fileInputStream.read()) != -1) {//-1은 문서끝을 읽어들일때까지
-				System.out.print("바이트형 문자 읽어 들이기"+ (char)byte_content);
-			//read()로 읽어들인 바이트문자를 manifest_bak.txt로 저장
+			// for-시작값, 끝값, 증가 대신에 while (~조건동안) {구현을반복}
+			int byte_content;
+			while ((byte_content = fileInputStream.read()) != -1) {// -1은 문서끝을 읽어들일때까지
+				System.out.print("바이트형 문자 읽어 들이기" + (char) byte_content);
+				// read()로 읽어들인 바이트문자를 manifest_bak.txt로 저장
 				fileOutputStream.write(byte_content);
 			}
 		} catch (FileNotFoundException e) {
-			System.out.println("경로에서 파일을 찾을 수 없습니다."+ e.toString());
+			System.out.println("경로에서 파일을 찾을 수 없습니다." + e.toString());
 			e.printStackTrace();
 		}
-	} 
+	}
 
 }

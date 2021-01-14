@@ -29,6 +29,7 @@
     width: 60%;
     padding-right: 20px;
     background: none;
+    margint-top:0px;
   }
   .closePop {
     display: none;

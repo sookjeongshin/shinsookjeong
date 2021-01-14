@@ -18,12 +18,13 @@ img {
 }
 body {
   font-family: 'Nanum Gothic', '나눔 고딕', snas-serif;
-  font-size: 16px;
-  letter-spacing: -1px;
-  color: #444;
-  word-wrap: break-word;
-  line-height: 1;
+  font-size: 16px !important;
+  letter-spacing: -1px !important;
+  color: #444 !important;
+  word-wrap: break-word !important;
+  line-height: 1 !important;
 }
+dl, ol, ul { margin-bottom:0 !important;}
 .clear::after {
   content: '';
   clear: both;
