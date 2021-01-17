@@ -9,13 +9,12 @@ select count(*) from tbl_reply where bno = #{bno}
 <select id="selectReply" resultType="org.edu.vo.ReplyVO">
 select * from tbl_reply 
 where bno = #{bno}
-order by rno desc 
+order by rno desc
 limit #{pageVO.queryStartNo}, #{pageVO.queryPerPageNum}
-
 </select>
 
 <update id="updateCountReply">
-update tbl_board set reply_count = (select count (*) from tbl_rply where bno= #{bno})
+update tbl_board set reply_count = (select count(*) from tbl_reply where bno = #{bno})
 where bno = #{bno}
 </update>
 
@@ -26,19 +25,17 @@ values(#{bno}, #{reply_text}, #{replyer}, now())
 
 <update id="updateReply">
 update tbl_reply set
-reply_text = #{reply_text}
+reply_text = #{reply_text},
 update_date = now()
 where rno = #{rno}
-</update> 
+</update>
 
 <delete id="deleteReply">
-delete from tbl_reply
+delete from tbl_reply 
 where rno = #{rno}
 </delete>
 
 <delete id="deleteReplyAll">
 delete from tbl_reply where bno = #{bno}
 </delete>
-
-
 </mapper>

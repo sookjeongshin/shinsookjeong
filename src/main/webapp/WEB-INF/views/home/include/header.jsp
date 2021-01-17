@@ -38,7 +38,7 @@ if('${msg}' !='') {//자바의 EL표기법 =달라{변수명}
 	<header id="header">
 		<div class="header_area box_inner clear">
 			<!-- 상단로고영역 -->
-			<h1><a href="index.html">스프링 in 자바</a></h1>
+			<h1><a href="/">스프링 in 자바</a></h1>
 			<!-- //상단로고영역 -->
 			
 			<!-- 상단메뉴메뉴영역 -->
@@ -46,7 +46,7 @@ if('${msg}' !='') {//자바의 EL표기법 =달라{변수명}
 			<div class="header_cont">
 				<ul class="util clear">
 					<c:choose>
-					<c:when test="${session_eanbled eq'true'}">
+					<c:when test="${session_enabled eq'true'}">
 					<!-- 로그인 후 보이는 메뉴(아래) -->
 					<li><a href="#">${session_username}님 환영합니다.</a></li>
 					<li><a href="/member/mypage">마이페이지</a></li>
@@ -79,22 +79,7 @@ if('${msg}' !='') {//자바의 EL표기법 =달라{변수명}
                             </ul>
                         </div>
 					</li>
-					<li><a href="board_list.html" class="openAll3">상품투어</a>
-                        <div class="gnb_depth gnb_depth2_3">
-                            <ul class="submenu_list">
-                                <li><a href="board_list.html">프로그램 소개</a></li>
-                                <li><a href="board_list.html">스프링자료</a></li>
-                            </ul>
-                        </div>
-					</li>
-					<li><a href="board_list.html" class="openAll4">티켓/가이드</a>
-                        <div class="gnb_depth gnb_depth2_4">
-                            <ul class="submenu_list">
-                                <li><a href="board_list.html">항공</a></li>
-                                <li><a href="board_list.html">호텔</a></li>
-                            </ul>
-                        </div>
-					</li>
+					
 				</ul>
                 </nav>
 				<p class="closePop"><a href="javascript:;">닫기</a></p>

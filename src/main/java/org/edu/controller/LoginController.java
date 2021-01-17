@@ -24,7 +24,7 @@ public class LoginController {
 	private IF_MemberService memberService;
 	
 	//로그인 후 세션 처리 매핑
-	@RequestMapping(value="login_seccess", method=RequestMethod.GET)
+	@RequestMapping(value="/login_success", method=RequestMethod.GET)
 	public String login_seccess(HttpServletRequest request, RedirectAttributes rdat) throws Exception{
 		//이미 인증이 마치고 진입한 메서드 그래서 이래 authentication 변수에는 인증정보가 들어있습니다.
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -51,9 +51,9 @@ public class LoginController {
 			//사용자 아이디 값 지정.
 			userid= ((UserDetails)principal).getUsername();
 			//로그인 세션 저장시작: 사용처는 jsp뷰단, java클래스 모두 사용가능
-			session.setAttribute("sessioin_enabled", enabled);
+			session.setAttribute("session_enabled", enabled);
 			session.setAttribute("session_userid", userid);
-			session.setAttribute("session_levles", levels);
+			session.setAttribute("session_levels", levels);
 			//상단까지의 세션변수는 스프링큐리티에서 기본 제공하는 변수
 			//하단부터는 비즈니스 로직에 따라서 개발쪽에서 발생시키는 세션변수 시작
 			MemberVO memberVO = memberService.readMember(userid);

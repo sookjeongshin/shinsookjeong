@@ -32,7 +32,7 @@ if("${param.msg}" == "fail") {
 			<!-- secform태그로 form을 감싸주면, xss공격 차단시킴 -->
 			<!-- sectoken태그로 csrf공격 차단시킴 -->
 			<!-- 
-			<secform:form method="POST" commandName="login_form" name="login_form" action="login.html" class="appForm">
+			<secform:form method="POST" modelAttribute="login_form" name="login_form" action="login.html" class="appForm">
 				<sectoken:csrfInput/>
 			</secform:form>
 			 -->

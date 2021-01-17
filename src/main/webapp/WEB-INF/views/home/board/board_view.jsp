@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <link rel="stylesheet" href="/resources/home/css/board.css">
 <!-- Font Awesome -->
@@ -65,7 +66,11 @@
 				</li>
 			</ul>
 			<p class="btn_line txt_right">
-				<a href="/home/board/board_list" class="btn_bbs">목록</a>
+				<a href="/home/board/board_list?page=${pageVO.page}" class="btn_bbs">목록</a>
+				<a href="/home/board/board_update?bno=${boardVO.bno}&page=${pageVO.page}" class="btn_bbs">
+				수정
+				</a>
+				<button class="btn_baseColor btn_smallColor">삭제</button>
 			</p>
 			
 		</div>
@@ -78,7 +83,7 @@
 	          <div class="card-header">
 	            <h5 class="card-title">Add New Reply</h5>
 	          </div>
-	          <form action="board_view.html" name="reply_form" method="post">
+	          <form action="#" name="reply_form" method="post">
 	          <div class="card-body">
 	          	<div class="form-group">
                    <label for="replyer">Writer</label>
@@ -98,7 +103,7 @@
 	          	  <!-- .time-label의 before 위치 -->
 		          <div class="time-label">
 	                <span data-toggle="collapse" data-target="#div_reply" class="bg-red btn" id="btn_reply_list">Reply List[<span id="reply_count">${boardVO.reply_count}</span>]&nbsp;&nbsp;</span>
-	                      </div>
+	              </div>
 	              <div id="div_reply" class="timeline collapse">
 	              
 		              <!-- 페이징처리 시작 -->
@@ -168,7 +173,7 @@ var printPageVO = function(pageVO, target) {
 <!-- 댓글 리스트 실행 하는 함수(아래) -->
 <script>
 var replyList = function(){
-	var page = $("#reply_page").val();//현재 지정된 댓글 페이지 값 가져오기
+	var page = $("#reply_page").val();//현재 지정된 댓글 페이지 값 가져오기Get
 	$.ajax({
 		url:"/reply/reply_list/${boardVO.bno}/"+page,//쿼리스트링X, 패스베리어블로 보냅니다.
 		type:"post",//원래는 get인데, post로 보낼수 있음.
@@ -212,10 +217,10 @@ $(document).ready(function(){
 <!-- 댓글 수정 버튼 액션 처리(아래) -->
 <script>
 $(document).ready(function(){
-	$("updateReplyBtn").on("click",function(){
+	$("#updateReplyBtn").on("click",function(){
 		if("${session_enabled}" == "") {
 			alert("회원만 댓글 수정이 가능합니다.");
-			location.href="/login";
+			location.href = "/login";
 			return false;
 		}
 		var reply_text = $("#replytext").val();//겟Get
@@ -237,12 +242,12 @@ $(document).ready(function(){
 					alert("댓글 수정 성공!");
 					$("#replyModal").modal("hide");
 					replyList();//수정 후 댓글리스트 재 호출(실행)
-			}else{
+				}else{
 					alert("댓글 수정 실패!");
 				}
 			},
 			error:function(result){
-				alert("RestAPI서버가 작동하지 않습니다.")
+				alert("RestAPI서버가 작동하지 않습니다.");
 			}
 		});
 	});
@@ -251,26 +256,26 @@ $(document).ready(function(){
 <!-- 댓글 삭제 버튼 액션 처리(아래) -->
 <script>
 $(document).ready(function(){
-	$("deleteReplyBtn").on("click",function(){
+	$("#deleteReplyBtn").on("click",function(){
 		if("${session_enabled}" == "") {
 			alert("회원만 댓글 삭제가 가능합니다.");
-			location.href="/login";
+			location.href = "/login";
 			return false;
 		}
-		var rno = $("rno").val();
+		var rno = $("#rno").val();
 		$.ajax({
 			type:"delete",
-			url:"/reply/reply_delete/bno/${boardVO.bno}/"+rno,
+			url:"/reply/reply_delete/${boardVO.bno}/"+rno,
 			dataType:"text",
 			success:function(result){
 				if(result=="success") {
 					alert("댓글삭제 성공!");
-					var reply_count = $("#reply_count").text(); //겟GET
-					$("#reply_count").text(parseInt(reply_count)-1); //셋SET
+					var reply_count = $("#reply_count").text();//겟Get
+					$("#reply_count").text(parseInt(reply_count)-1);//셋Set
 					replyList();//삭제후 댓글 리스트 재실행.
-					$("#replyModal")modal("hide");//모달창을 닫는 JQuery내장함수
+					$("#replyModal").modal("hide");//모달창을 닫는 JQuery내장함수
 				}else{
-					alert("댓글삭제 실패!")
+					alert("댓글삭제 실패!");
 				}
 			},
 			error:function(result){
@@ -284,27 +289,26 @@ $(document).ready(function(){
 <script>
 $(document).ready(function() {
 	$("#insertReplyBtn").on("click", function() {//댓글등록버튼을 클릭했을 때 구현내용(아래)
-		if("${session_enabled}" == "") {
-			//버튼 클릭시 비로그인시 로그인으로 유도
-			alert("회원만 댓글등록이 가능합니다.");
-			location.href="/login";//자바스크립트 내장함수(herf:hyㅔerTextReference:URL이동함수)
+		if("${session_enabled}" == "") {//버튼클릭시 비로그인시 로그인 화면으로 유도
+			alert("회원만 댓글 등록이 가능합니다.");
+			location.href = "/login";//자바스크립트 내장기능(href:hyterTextReference:URL이동)
 			return false;
 		}
 		//alert("디버그");
 		//Ajax를 이용해서, 화면을 Representation (REST-API방식) 부분 화면을 재구현(아래)
-		var bno ="{$boardVO.bno}";
-		var reply_text = ${"#reply_text"}.val();//input type은 val()라는 함수로 입력값을 가져올 수 있음
+		var bno = "${boardVO.bno}";
+		var reply_text = $("#reply_text").val();//input type은 val()함수로 입력값을 가져올 수 있음.
 		var replyer = $("#replyer").val();
-		if(reply_text==""|| replyer=="") {
+		if(reply_text=="" || replyer=="") {
 			alert("댓글 내용, 작성자는 필수 입력 사항 입니다.");
 			return false;
 		}
-		$.ajax({//통신프로그램 J:쿼리에서 내장된 함수 ajax({}); 비동기통신특징(HTTP동기통신-웹페이지의 단점을 해소 Ajax)
-		//최초로 상용화 적용되었던 곳이 파일 업로드/다운로드에 Ajax기능이 적용되었습니다.
-		//서버 (RestAPI서버=컨트롤러)-클라이언트(PC브라우저ajax)
+		$.ajax({//통신프로그램: J쿼리에서 내장된 함수ajax({}); 비동기통신특징(HTTP동기통신-웹페이지의 단점을 해소 Ajax)
+		//최초로 상용화 적용되었던 곳이 파일 업로드/다운로드에 Ajax기능의 적용되었습니다.
+		//서버(RestAPI서버=컨트롤러)-클라이언트(PC브라우저ajax=jsp단-화면)
 			//여기서부터는 프론트 엔드 개발자 영역
 			type:'post',//지금은 html이라서 get방식이지만, jsp로가면, post방식으로 바꿔야 합니다.
-			url:'/reply/reply_wirte',//jsp로 가면, ReplyController 에서 지정한 url로 바꿔야 합니다.
+			url:'/reply/reply_write',//jsp로 가면, ReplyController 에서 지정한 url로 바꿔야 합니다.
 			headers:{
 				"Content-Type":"application/json",
 				"X-HTTP-Method-Override":"POST"
@@ -315,19 +319,19 @@ $(document).ready(function() {
 				replyer:replyer
 			}),//RestAPI서버컨트롤러로 보내는 Json값
 			success:function(result) {//응답이 성공하면(상태값200)위경로에서 반환받은 result(json데이터)를 이용해서 화면을 재구현
-			var reply_count = $("#reply_count").text(); //겟GET
-			$("#reply_count").text(parseInt(reply_count)+1); //셋SET
-			//댓글 3페이지를 보고 있다가, 댓글 입력>본인 작성 댓글 바로 확인 가능 하도록 1페이지로 가도록 유도
-			$("reply_page").val("1");//그래서 1페이지 값으로 set
-			replyList();//댓글입력 후 리스트 출력함수 호출(실행)
-			$("#replyer").val(""); //input박스의 값 제거
-			$("#reply_text").val("");
+				var reply_count = $("#reply_count").text();//겟Get
+				$("#reply_count").text(parseInt(reply_count)+1);//셋Set
+				//댓글 3페이지를 보고 있다가, 댓글 입력했어요, 본인 작성할 댓글 바로 확인 가능하도록 1page로 가도록 유도
+				$("#reply_page").val("1");//그래서 1페이지값으로 Set
+				replyList();//댓글입력 후 리스트 출력함수 호출(실행)
+				$("#replyer").val("");//input박스의 값 제거 
+				$("#reply_text").val("");
 			},
 			error:function(result) {
 				alert("RestAPI서버가 작동하지 않습니다.");
-				}
+			}
 		});
-	});
+	} );
 });
 </script>
 <!-- 댓글리스트에서 수정 버튼을 클릭했을때, 팝업창이 뜨는데, 그 팝업창에 내용을 동적으로 변경시켜주는 구현(아래)  -->
@@ -365,7 +369,6 @@ $(document).ready(function() {
       </div>
     </div>
   </div>
-</div>
-	
+</div>	
 
 <%@ include file="../include/footer.jsp" %>
