@@ -120,19 +120,17 @@ public class AdminController {
 		for(MultipartFile file:files) {//다중파일 업로드 호출 부분 시작 향상된 for문사용
 			if(file.getOriginalFilename() != "") {//첨부파일명이 있으면
 				//기존파일 DB에서 삭제처리할 변수 생성한 이유:업데이트jsp에서 첨부파일 개별삭제시 순서가 필요하기때문
-				int cnt = 0;
-				for(AttachVO file_name:delFiles) {
-					save_file_names[cnt] = file_name.getSave_file_name();
-					real_file_names[cnt] = file_name.getReal_file_name();
-					cnt = cnt + 1;//반복시 증가
-				}
 				/*
-				for(HashMap<String,Object> file_name:delFiles_noUse) {
-					save_file_names[cnt] = (String) file_name.get("save_file_name");
-					real_file_names[cnt] = (String) file_name.get("real_file_name");
-					cnt = cnt + 1;//반복시 증가
-				}
-				*/
+				 * int cnt = 0; for(AttachVO file_name:delFiles) { save_file_names[cnt] =
+				 * file_name.getSave_file_name(); real_file_names[cnt] =
+				 * file_name.getReal_file_name(); cnt = cnt + 1;//반복시 증가 }
+				 */
+				/*
+				 * for(HashMap<String,Object> file_name:delFiles_noUse) { save_file_names[cnt] =
+				 * (String) file_name.get("save_file_name"); real_file_names[cnt] = (String)
+				 * file_name.get("real_file_name"); cnt = cnt + 1;//반복시 증가 }
+				 */
+				
 				int sun = 0;//업데이트jsp화면에서 첨부파일을 개별 삭제시 사용할  순서가 필요하기때문 변수 추가
 				//기존파일 폴더에서 실제파일 삭제 처리
 				for(AttachVO file_name:delFiles) {
@@ -147,8 +145,11 @@ public class AdminController {
 					sun = sun + 1;//개별삭제는 for문에서 딱 1번 뿐이기 때문에
 				}
 				//신규파일 폴더에 업로드 처리
-				save_file_names[index] = commonController.fileUpload(file);//폴더에 업로드저장완료
-				real_file_names[index] = file.getOriginalFilename();//"한글파일명.jpg"
+				save_file_names[index] = commonController.fileUpload(file);//신규파일 폴더에 업로드
+				real_file_names[index] = file.getOriginalFilename();//신규파일 한글파일명 저장
+			}else{
+				save_file_names[index] = null;//신규파일 폴더에 업로드
+				real_file_names[index] = null;//신규파일 한글파일명 저장
 			}
 			index = index + 1;
 		}

@@ -22,6 +22,7 @@ import org.edu.vo.MemberVO;
 import org.edu.vo.PageVO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -37,6 +38,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
+//@PropertySource("classpath:properties/local.properties")//현재클래스에서 전역변수 사용시 필요
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/*.xml" })
 @WebAppConfiguration
 public class DataSourceTest {
@@ -153,25 +155,26 @@ public class DataSourceTest {
 		System.out.println(memberList.toString());
 	}
 
-	/**
-	 * @throws Exception
-	 */
+
 	@Test
-	public void oldSelectTest() throws Exception{
+	public void oldQueryTest() throws Exception{
 		//Connection connection = dataSource.getConnection(); //root-context사용
 		Connection connection = null;
 		connection = DriverManager.getConnection("jdbc:hsqldb:file:c:/egov/workspace/embeded/hsql_file.db;hsqldb.lock_file=false","sa","");
+		/* mysql(마리아DB)
+		 * .getConnection("jdbc:log4jdbc:mysql://127.0.0.1:3306/edu","root","apmsetup");
+		 */
 		//직접 쿼리를 날립니다. (아래)
 		Statement stmt = connection.createStatement();
 		/*인서트 쿼리 발행*/
-		for(int cnt=0;cnt<=100;cnt++) {//고정 방식으로 더미 데이터 입력하기(아래)
-		stmt.executeQuery("INSERT INTO tbl_board VALUES("
-				+"(select count(*) from tbl_board) +1"
-				+",'강제 수정된 글입니다.','수정 테스트','user00', now(),now(),0,0)");		
-
-		/*셀렉트 쿼리실행(아래)*/
+		/*
+		 * for(int cnt=0;cnt<=100;cnt++) {//고정 방식으로 더미 데이터 입력하기(아래)
+		 * stmt.executeQuery("INSERT INTO tbl_board VALUES("
+		 * +"(select count(*) from tbl_board) +1"
+		 * +",'강제 수정된 글입니다.','수정 테스트','user00', now(),now(),0,0)"); }
+		 */		/*셀렉트 쿼리실행(아래)*/
 				ResultSet rs = stmt.executeQuery("select * from tbl_board");
-				System.out.println("제목\t\t내용\t\t작성자"); while(rs.next()) {
+				System.out.println("제목\t\t내용\t\t작성자");
 				 while(rs.next()){
 				System.out.print(rs.getString("bno"));
 				 System.out.print(rs.getString("title"));
@@ -183,8 +186,7 @@ public class DataSourceTest {
 		if(stmt !=null)stmt.close();
 		if(connection !=null)connection.close();
 		}
-	}
-}
+	
 
 	@Test
 	public void dbConnectionTest() throws Exception {
