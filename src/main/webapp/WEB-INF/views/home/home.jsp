@@ -86,7 +86,7 @@ $(document).ready(function(){
 						</c:if>
 						<c:if test="${save_file_names[status.index] ne ''}">
 								<img src="/image_preview?save_file_name=${save_file_names[status.index]}" style="opacity:0.8;" >
-							 이미지가 있습니다.
+							
 						</c:if>
 						</div>
 						<h3 class="length_limit"><c:out value="${boardVO.title}"></c:out></h3>
