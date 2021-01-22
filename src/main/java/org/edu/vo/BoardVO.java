@@ -2,6 +2,11 @@ package org.edu.vo;
 
 import java.util.Date;
 
+/**
+ * 게시판에서 사용되는 데이터 입출력 클래스
+ * @author 신숙정
+ *
+ */
 public class BoardVO {
 	//멤버변수 선언
 	private Integer bno;//int은 입력값이 null일때 에러나기  때문에, Interger로 변경

@@ -73,13 +73,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                  <c:if test="${empty members }">
-                  <tr><th colspan="6" class="text-center">조회된 데이터가 없습니다.</th></tr>
+                  <c:if test="${empty members}">
+                  	<tr><td colspan="6" class="text-center">조회된 데이터가 없습니다.</td></tr>
                   </c:if>
                   <!-- jstl표준 core태그사용 반복문으로 Admin컨트롤러에서 가져온 members 오브젝트클래스 값을 출력 -->
                   <c:forEach items="${members}" var="member">
                   	<tr>
-                      <td><a href="/admin/member/member_view?page=${pageVO.page}user_id=${member.user_id}">${member.user_id}</a></td>
+                      <td><a href="/admin/member/member_view?page=${pageVO.page}&user_id=${member.user_id}">${member.user_id}</a></td>
                       <!-- 위에 a링크값은 리스트가 늘어날 수록 동적으로 user_id값이 변하게 됩니다. 개발자가 jsp처리 -->
                       <td>${member.user_name}[${member.point}]</td>
                       <td>${member.email}</td>
@@ -114,7 +114,7 @@
               </div>
             <!-- 버튼영역 끝 -->
               
-               <!-- 페이징처리 시작 -->
+            <!-- 페이징처리 시작 -->
             <div class="pagination justify-content-center">
             	<ul class="pagination">
             	 <c:if test="${pageVO.prev}">
@@ -138,7 +138,7 @@
             	 </c:if>
             	 </ul>
             </div>
-	  		<!-- 페이징처리 끝 -->       
+	  		<!-- 페이징처리 끝 -->     
             
           </div>
         </div>

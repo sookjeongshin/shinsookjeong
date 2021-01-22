@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 
 import org.edu.dao.IF_BoardDAO;
 import org.edu.service.IF_BoardService;
@@ -119,17 +120,6 @@ public class AdminController {
 		//첨부파일 수정: 기존첨부파일 삭제 후 신규파일 업로드
 		for(MultipartFile file:files) {//다중파일 업로드 호출 부분 시작 향상된 for문사용
 			if(file.getOriginalFilename() != "") {//첨부파일명이 있으면
-				//기존파일 DB에서 삭제처리할 변수 생성한 이유:업데이트jsp에서 첨부파일 개별삭제시 순서가 필요하기때문
-				/*
-				 * int cnt = 0; for(AttachVO file_name:delFiles) { save_file_names[cnt] =
-				 * file_name.getSave_file_name(); real_file_names[cnt] =
-				 * file_name.getReal_file_name(); cnt = cnt + 1;//반복시 증가 }
-				 */
-				/*
-				 * for(HashMap<String,Object> file_name:delFiles_noUse) { save_file_names[cnt] =
-				 * (String) file_name.get("save_file_name"); real_file_names[cnt] = (String)
-				 * file_name.get("real_file_name"); cnt = cnt + 1;//반복시 증가 }
-				 */
 				
 				int sun = 0;//업데이트jsp화면에서 첨부파일을 개별 삭제시 사용할  순서가 필요하기때문 변수 추가
 				//기존파일 폴더에서 실제파일 삭제 처리
@@ -138,10 +128,10 @@ public class AdminController {
 						File target = new File(commonController.getUploadPath(), file_name.getSave_file_name());
 						if(target.exists()) {
 							target.delete();//폴더에서 기존첨부파일 지우기
+							//서비스클래스에는 첨부파일DB를 지우는 메서드가 없음. DAO를 접근해서 tbl_attach를 지웁니다.
+							boardDAO.deleteAttach(file_name.getSave_file_name());
 						}
 					}
-					//서비스클래스에는 첨부파일DB를 지우는 메서드가 없음. DAO를 접근해서 tbl_attach를 지웁니다.
-					boardDAO.deleteAttach(file_name.getSave_file_name());
 					sun = sun + 1;//개별삭제는 for문에서 딱 1번 뿐이기 때문에
 				}
 				//신규파일 폴더에 업로드 처리
@@ -151,7 +141,7 @@ public class AdminController {
 				save_file_names[index] = null;//신규파일 폴더에 업로드
 				real_file_names[index] = null;//신규파일 한글파일명 저장
 			}
-			index = index + 1;
+			index = index + 1; 
 		}
 		boardVO.setSave_file_names(save_file_names);//UUID로 생성된 유니크한 파일명
 		boardVO.setReal_file_names(real_file_names);
@@ -285,7 +275,7 @@ public class AdminController {
 	
 	//메서드 오버로딩(예, 동영상 로딩중..., 로딩된 매개변수가 다르면, 메서드이름을 중복가능합니다. 대표적인 다형성구현)
 	@RequestMapping(value="/admin/member/member_write",method=RequestMethod.POST)
-	public String member_write(MemberVO memberVO) throws Exception {
+	public String member_write(@Valid MemberVO memberVO) throws Exception {
 		//아래 GET방식의 폼 출력화면에서 데이터 전송받은 내용을 처리하는 바인딩.
 		//POST방식으로 넘어온 user_pw값을 BCryptPasswordEncoder클래스로 암호시킴
 		if(memberVO.getUser_pw() != null) {
@@ -312,9 +302,10 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/admin/member/member_update",method=RequestMethod.POST)
-	public String member_update(PageVO pageVO, MemberVO memberVO) throws Exception {
+	public String member_update(PageVO pageVO,@Valid MemberVO memberVO) throws Exception {
 		//POST방식으로 넘어온 user_pw값을 BCryptPasswordEncoder클래스로 암호시킴
-		if(memberVO.getUser_pw() != null) {
+		if(memberVO.getUser_pw() == null || memberVO.getUser_pw()=="") {
+		}else {
 			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 			String userPwEncoder = passwordEncoder.encode(memberVO.getUser_pw());
 			memberVO.setUser_pw(userPwEncoder);
