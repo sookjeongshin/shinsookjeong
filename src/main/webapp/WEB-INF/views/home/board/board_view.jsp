@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <link rel="stylesheet" href="/resources/home/css/board.css">
 <!-- Font Awesome -->
@@ -15,16 +14,7 @@
 	<!-- 메인콘텐츠영역 -->
 	<div id="container">
 		<!-- 메인상단위치표시영역 -->
-		<div class="location_area customer">
-			<div class="box_inner">
-				<h2 class="tit_page">스프링 <span class="in">in</span> 자바</h2>
-				<p class="location">고객센터 <span class="path">/</span> 공지사항</p>
-				<ul class="page_menu clear">
-					<li><a href="#" class="on">공지사항</a></li>
-					<li><a href="#">문의하기</a></li>
-				</ul>
-			</div>
-		</div>	
+		<%@ include file="../include/container_header.jsp" %>
 		<!-- //메인상단위치표시영역 -->
 
 		<!-- 메인본문영역 -->
@@ -369,7 +359,7 @@ $(document).ready(function() {
       </div>
     </div>
   </div>
-</div>	
+</div>
 <form name="action_form">
 <input type="hidden" name="bno" value="${boardVO.bno}">
 <input type="hidden" name="page" value="${pageVO.page}">

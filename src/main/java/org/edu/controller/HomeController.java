@@ -264,6 +264,7 @@ public class HomeController {
 		return "redirect:/";
 	}
 	
+
 	//사용자 홈페이지 회원가입 처리 매핑
 	@RequestMapping(value="/join",method=RequestMethod.POST)
 	public String join(MemberVO memberVO, RedirectAttributes rdat) throws Exception {
@@ -276,6 +277,7 @@ public class HomeController {
 		rdat.addFlashAttribute("msg", "회원가입");
 		return "redirect:/login";
 	}
+	
 	//사용자 홈페이지 회원가입 접근 매핑
 	@RequestMapping(value="/join",method=RequestMethod.GET)
 	public String join() throws Exception{
@@ -284,47 +286,53 @@ public class HomeController {
 	}
 	
 	//사용자 홈페이지 루트(최상위) 접근 매핑
-	@RequestMapping(value="/",method=RequestMethod.GET)
-	public String home(Model model) throws Exception{
-		PageVO pageVO = new PageVO();
-		pageVO.setPage(1);
-		pageVO.setPerPageNum(5);//하단페이징
-		pageVO.setQueryPerPageNum(5);
-		List<BoardVO> board_list = boardService.selectBoard(pageVO);
-		//System.out.println("디버그" + board_list);
-		model.addAttribute("board_list", board_list);
-		
-		//첨부파일 1개만 model클래스를 이용해서 jsp로 보냅니다.
-		String[] save_file_names = new String[board_list.size()];
-		int cnt = 0;
-		for(BoardVO boardVO:board_list) {//board_list변수에는 최대 5개의 레코드가 존재함.
-			List<AttachVO> file_list = boardService.readAttach(boardVO.getBno());
-			//System.out.println("디버그-file_list" + file_list);
-			if(file_list.size() == 0) {//첨부파일이 없을떄
-				save_file_names[cnt] = "";
-				System.out.println("디버그-[" + cnt + "]" + save_file_names[cnt]);
-				//continue;//컨티뉴 아래는 실행 하지 않고 거너띔
-			} else {
-				for(AttachVO file_name:file_list) {
-					String save_file_name = file_name.getSave_file_name();
-					String extName = FilenameUtils.getExtension(save_file_name);
-					boolean imgCheck = commonController.getCheckImgArray().contains(extName.toLowerCase());
-					if(imgCheck) {//첨부파일이 이미지일때
-						save_file_names[cnt] = save_file_name;
-						System.out.println("디버그[" + cnt + "]" + save_file_names[cnt]);
-						break;//이중 반복문에서 현재 for문만 종료
-					} else {//첨부파일이 엑셀,한글같은 파일일때
-						save_file_names[cnt] = "";
-						System.out.println("디버그[" + cnt + "]" + save_file_names[cnt]);
+		@RequestMapping(value="/",method=RequestMethod.GET)
+		public String home(Model model) throws Exception{
+			PageVO pageVO = new PageVO();
+			pageVO.setPage(1);
+			pageVO.setPerPageNum(5);//하단페이징
+			pageVO.setQueryPerPageNum(5);
+			
+			//사용자홈 메인페이지에 출력할 게시판 지정, gallery 쿼리1
+			pageVO.setBoard_type("gallery");
+			List<BoardVO> board_list = boardService.selectBoard(pageVO);
+			//사용자홈 메인페이지에 출력할 게시판 지정, notice 쿼리2
+			pageVO.setBoard_type("notice");
+			List<BoardVO> notice_list = boardService.selectBoard(pageVO);
+			//System.out.println("디버그" + board_list);
+			model.addAttribute("board_list", board_list);
+			model.addAttribute("notice_list", notice_list);
+			//첨부파일 1개만 model클래스를 이용해서 jsp로 보냅니다.
+			String[] save_file_names = new String[board_list.size()];
+			int cnt = 0;
+			for(BoardVO boardVO:board_list) {//board_list변수에는 최대 5개의 레코드가 존재함.
+				List<AttachVO> file_list = boardService.readAttach(boardVO.getBno());
+				//System.out.println("디버그-file_list" + file_list);
+				if(file_list.size() == 0) {//첨부파일이 없을떄
+					save_file_names[cnt] = "";
+					System.out.println("디버그-[" + cnt + "]" + save_file_names[cnt]);
+					//continue;//컨티뉴 아래는 실행 하지 않고 거너띔
+				} else {
+					for(AttachVO file_name:file_list) {
+						String save_file_name = file_name.getSave_file_name();
+						String extName = FilenameUtils.getExtension(save_file_name);
+						boolean imgCheck = commonController.getCheckImgArray().contains(extName.toLowerCase());
+						if(imgCheck) {//첨부파일이 이미지일때
+							save_file_names[cnt] = save_file_name;
+							System.out.println("디버그[" + cnt + "]" + save_file_names[cnt]);
+							break;//이중 반복문에서 현재 for문만 종료
+						} else {//첨부파일이 엑셀,한글같은 파일일때
+							save_file_names[cnt] = "";
+							System.out.println("디버그[" + cnt + "]" + save_file_names[cnt]);
+						}
 					}
 				}
+				cnt = cnt + 1;
 			}
-			cnt = cnt + 1;
+			
+			model.addAttribute("save_file_names", save_file_names);
+			return "home/home";
 		}
-		
-		model.addAttribute("save_file_names", save_file_names);
-		return "home/home";
-	}
 	
 	/*@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ include file="../include/header.jsp" %>
 
   <!-- 대시보드 본문 Content Wrapper. Contains page content -->
@@ -11,7 +12,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">게시판리스트</h1>
+            <h1 class="m-0">게시판리스트${session_board_type}</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -64,7 +65,7 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                          <th>bno</th><!-- 테이블 헤드 타이틀태그th -->
+                      <th>bno</th><!-- 테이블 헤드 타이틀태그th -->
                       <th>title[reply_count]</th>
                       <th>writer</th>
                       <th>reg_date</th>
@@ -72,25 +73,30 @@
                     </tr>
                   </thead>
                   <tbody>
-                  <c:forEach items="${board_list}" var="boardVO">
-                  <tr>
-                  <td>
-                       <!--   <td>${boardVO.bno}</td> -->
-                       <!-- 전체게시물-(현재페이지x1페이지 당 보여줄 개수 ) + 1페이지당 보여줄 개수 -현재 인덱스값-->
-						${pageVO.totalCount-(pageVO.page*pageVO.queryPerPageNum)+pageVO.queryPerPageNum-status.index}
-					  <!-- 아래 a링크값은 리스트가 늘어날 수록 동적으로 bno값이 변하게 됩니다. 개발자가 jsp처리 -->
+                  <c:if test="${fn:length(board_list) == 0}">
+                  <tr><td colspan="5" class="text-center">조회된 데이터가 없습니다.</td></tr>
+                  </c:if>
+                  <!-- jstl core를 갖다쓰는 이유는 향상된 for반복문을 사용하기 위해서 지정(아래) -->
+                  <c:forEach items="${board_list}" var="boardVO" varStatus="status">
+                  	<tr>
+                      <td>
+                      <!-- ${boardVO.bno} 대신에 보기편한 넘버링으로 변환(아래 계산식 사용) -->
+                      <!-- 전체게시물-(현재페이지x1페이지당보여줄개수)+1페이지당보여줄개수-현재인덱스값 -->
+                      ${pageVO.totalCount-(pageVO.page*pageVO.queryPerPageNum)+pageVO.queryPerPageNum-status.index}
                       [${boardVO.bno}]
                       </td>
+                      <!-- 아래 a링크값은 리스트가 늘어날 수록 동적으로 bno값이 변하게 됩니다. 개발자가 jsp처리 -->
                       <td><a href="/admin/board/board_view?page=${pageVO.page}&bno=${boardVO.bno}">
                       <!-- c:out 사용하는 이유는 메롱을 방지하기 위해서 시큐어코딩처리 -->
-                       <c:out value="${boardVO.title}"></c:out>[<c:out value="${boardVO.reply_count}"></c:out>]
+                      <c:out value="${boardVO.title}"></c:out>[<c:out value="${boardVO.reply_count}"></c:out>]
                       </a></td>
                       <td><c:out value="${boardVO.writer}"></c:out></td>
                       <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.reg_date}"/></td>
-                       <td><span class="badge bg-danger">${boardVO.view_count}</span></td>
+                      <td><span class="badge bg-danger">${boardVO.view_count}</span></td>
                       <!-- 권한표시는 부트스트랩 뺏지 클래스 사용 -->
                     </tr>
                   </c:forEach>
+                    
                   </tbody>
                 </table>
               </div>
@@ -100,8 +106,8 @@
             <!-- /.card -->
             
             <!-- 버튼영역 시작 -->
-                      <div class="card-body">
-              	<a href="/admin/board/board_write" class="btn btn-primary float-right">CREATE</a>       	
+              <div class="card-body">
+              	<a href="/admin/board/board_write" class="btn btn-primary float-right">CREATE</a>
               	<!-- 부트스트랩 디자인 버튼클래스를 이용해서 a태그를 버튼모양 만들기(위) -->
               	<!-- btn클래스명이 버튼모양으로 변경, btn-primary클래스명은 버튼색상을 변경하는역할 -->
               	<!-- 
@@ -114,7 +120,7 @@
               </div>
             <!-- 버튼영역 끝 -->
               
-                     <!-- 페이징처리 시작 -->
+            <!-- 페이징처리 시작 -->
             <div class="pagination justify-content-center">
             	<ul class="pagination">
             	 <c:if test="${pageVO.prev}">
@@ -138,7 +144,7 @@
             	 </c:if>
             	 </ul>
             </div>
-	  		<!-- 페이징처리 끝 -->       
+	  		<!-- 페이징처리 끝 -->
             
           </div>
         </div>
@@ -148,7 +154,5 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
-
 
 <%@ include file="../include/footer.jsp" %>
