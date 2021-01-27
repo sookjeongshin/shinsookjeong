@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F3DC025B-983F-E5F8-6362-35462245C211" schemaObject="9454D69E-580C-0D38-FF76-BEB588262896" name="TBL_BOARD_TYPE">
+<sourceConnName>XE</sourceConnName>
+<sourceObjSchema>XE</sourceObjSchema>
+<sourceObjName>TBL_BOARD_TYPE</sourceObjName>
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:31:38 UTC</createdTime>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+<importedID>5236098B-7228-BB6E-5793-92FA84812459</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="BOARD_TYPE" id="E3957A75-F594-4279-BC39-1C80D738D8D4">
+<sourceConnName>XE</sourceConnName>
+<sourceObjSchema>TBL_BOARD_TYPE</sourceObjSchema>
+<sourceObjName>BOARD_TYPE</sourceObjName>
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:31:38 UTC</createdTime>
+<comment><![CDATA[게]]></comment>
+<commentInRDBMS><![CDATA[게시판유형]]></commentInRDBMS>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+<importedID>18D561F6-90E1-F6C8-3D64-20A29FC59A0A</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45 BYTE</dataTypeSize>
+<ownDataTypeParameters>45 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BOARD_NAME" id="54A0AEC8-850E-EF17-D5AC-066C1B6A06DC">
+<sourceConnName>XE</sourceConnName>
+<sourceObjSchema>TBL_BOARD_TYPE</sourceObjSchema>
+<sourceObjName>BOARD_NAME</sourceObjName>
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:31:38 UTC</createdTime>
+<commentInRDBMS><![CDATA[게시판이름]]></commentInRDBMS>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+<importedID>01224D05-3A2E-9DF3-3F36-673E808F66E8</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45 BYTE</dataTypeSize>
+<ownDataTypeParameters>45 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BOARD_SUN" id="2BCE7A3F-E38F-3907-3202-AD9670BE3CDA">
+<sourceConnName>XE</sourceConnName>
+<sourceObjSchema>TBL_BOARD_TYPE</sourceObjSchema>
+<sourceObjName>BOARD_SUN</sourceObjName>
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:31:38 UTC</createdTime>
+<commentInRDBMS><![CDATA[게시판순서]]></commentInRDBMS>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+<importedID>DF049A55-8915-EFB5-D9A4-47BF42DB5611</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9705B90E-9F79-E7DC-6E5B-1289D1ECD1A2" name="TBL_BOARD_TYPE_PK">
+<sourceConnName>XE</sourceConnName>
+<sourceObjSchema>XE</sourceObjSchema>
+<sourceObjName>TBL_BOARD_TYPE_PK</sourceObjName>
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:31:38 UTC</createdTime>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+<importedID>ACC33212-3BF1-6260-E6AC-D5EF73113A77</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E3957A75-F594-4279-BC39-1C80D738D8D4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2D57BCB7-B108-502C-3ED5-6B26D31ED7B9" schemaObject="9454D69E-580C-0D38-FF76-BEB588262896" name="TBL_BOARD_TYPE_PK">
+<sourceConnName>XE</sourceConnName>
+<sourceObjSchema>XE</sourceObjSchema>
+<sourceObjName>TBL_BOARD_TYPE_PK</sourceObjName>
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:31:38 UTC</createdTime>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+<importedID>AE4D7B78-0162-DB2B-53BB-E6C1CE39A296</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E3957A75-F594-4279-BC39-1C80D738D8D4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

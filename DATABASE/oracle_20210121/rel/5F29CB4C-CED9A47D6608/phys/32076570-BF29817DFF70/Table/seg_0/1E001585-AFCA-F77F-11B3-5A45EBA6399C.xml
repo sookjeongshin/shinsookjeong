@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="TBL_MEMBER" directorySegmentName="seg_0" id="1E001585-AFCA-F77F-11B3-5A45EBA6399C">
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:28:19 UTC</createdTime>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+<schemaObject>9454D69E-580C-0D38-FF76-BEB588262896</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>A53DC48A-7A74-7FBE-1173-089F80B9C337</segment>
+<tableSpace>4566A5E4-87F5-1F8A-C050-7C8A15357EEB</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="LEVELS" id="05397D12-705C-D8BA-2494-E2AA47CA3DA3">
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:28:19 UTC</createdTime>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_NAME" id="77760E53-2DDE-527D-F124-2488F5DB68DA">
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:28:19 UTC</createdTime>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMAIL" id="7A255785-C4A7-E983-E3EB-C5A7CC90AA23">
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:28:19 UTC</createdTime>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ENABLED" id="A12A577F-78C3-7743-3A2D-7D0F9DDB7D56">
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:28:19 UTC</createdTime>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="POINT" id="CA508743-3056-9369-CA8F-D98CB774CD28">
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:28:19 UTC</createdTime>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="UPDATE_DATE" id="D278A359-AAAA-CA77-6171-53B6EF3F2ED4">
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:28:19 UTC</createdTime>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REG_DATE" id="DB3304DA-4F0C-0028-623B-7B15814FC9E0">
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:28:19 UTC</createdTime>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_ID" id="E08C4866-3CAC-FC96-381C-DD6C5B3A08EE">
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:28:19 UTC</createdTime>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="USER_PW" id="EA16F69E-958A-8A02-ED29-58BBA4794126">
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:28:19 UTC</createdTime>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="TBL_MEMBER_PK" id="E48921E2-56AA-10AA-547F-D6143F73E33D">
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:28:19 UTC</createdTime>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+<schemaObject>9454D69E-580C-0D38-FF76-BEB588262896</schemaObject>
+<segment>B760F0DD-F723-519B-FAD9-52C3A5CD5F57</segment>
+<tableSpace>4566A5E4-87F5-1F8A-C050-7C8A15357EEB</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="TBL_MEMBER_PK" id="768772BF-32CE-8655-8242-444818CE042C">
+<createdBy>User</createdBy>
+<createdTime>2021-01-27 08:28:19 UTC</createdTime>
+<ownerDesignName>oracle_20210121</ownerDesignName>
+<segment>B760F0DD-F723-519B-FAD9-52C3A5CD5F57</segment>
+<tableSpace>4566A5E4-87F5-1F8A-C050-7C8A15357EEB</tableSpace>
+<existingIndex>E48921E2-56AA-10AA-547F-D6143F73E33D</existingIndex>
+<indexSegment>B760F0DD-F723-519B-FAD9-52C3A5CD5F57</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>
