@@ -74,7 +74,6 @@ public class AdminController {
 		return "redirect:/admin/bbs_type/bbs_type_list";
 	}
 	//게시판생성관리 등록매핑(POST)
-	//게시판생성관리 등록매핑(POST)
 	@RequestMapping(value="/admin/bbs_type/bbs_type_write",method=RequestMethod.POST)
 	public String bbs_type_wrtie(BoardTypeVO boardTypeVO, RedirectAttributes rdat) throws Exception {
 		//메서드명이 같고, 로드된 매개변수가 틀린방식을 오버로드

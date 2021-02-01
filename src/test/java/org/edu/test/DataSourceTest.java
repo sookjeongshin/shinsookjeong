@@ -35,7 +35,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
  * 제이유닛4클래스를 사용.
  * 단위테스트는 톰캣이 실행되지 않아도 작동이 되야 합니다.
  * 그래서, 테스트 클래스 상단에 servelet-context.xml 이러한 설정파일을 불러들여서 실행이 가능
- * @author 김일국
+ * @author 
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -108,11 +108,14 @@ public class DataSourceTest {
 	@Test
 	public void insertBoard() throws Exception {
 		BoardVO boardVO = new BoardVO();
+		boardVO.setBoard_type("gallery");
 		boardVO.setTitle("더미게시물");
 		boardVO.setContent("더미 내용 입니다.");
 		boardVO.setWriter("일반사용자");
+		Date reg_date = new Date();
+		boardVO.setReg_date(reg_date);
 		//boardVO.setBno(프라이머리키);
-		for(int cnt=0;cnt<=100;cnt++) {//더미게시물 100입력
+		for(int cnt=0;cnt<=0;cnt++) {//더미게시물 100입력
 			boardDAO.insertBoard(boardVO);
 		}
 	}

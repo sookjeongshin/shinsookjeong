@@ -1,6 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<StorageDesignOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.StorageDesignOraclev11g" name="Oracle Database 11g" id="22F8E905-CFE4-9414-D960-C7D87082A48B" siteID="32076570-2523-435C-2E92-BF29817DFF70" siteName="Oracle Database 11g" siteType="9">
-<createdBy>User</createdBy>
-<createdTime>2021-01-27 08:28:08 UTC</createdTime>
-<ownerDesignName>제목 없음_1</ownerDesignName>
-</StorageDesignOraclev11g>
