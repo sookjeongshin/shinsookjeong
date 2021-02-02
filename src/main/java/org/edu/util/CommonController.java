@@ -167,7 +167,7 @@ public class CommonController {
 		return result;//결과값 0, 1, 에러메세지
 	}
 	
-	@Transactional
+	@Transactional //DAO에서 오류가 발생하면 쿼리를 자동 rollback
 	@RequestMapping(value="/file_delete",method=RequestMethod.POST)
 	@ResponseBody //메서드 응답을 내용만 반환 받겠다고 명시 RestAPI 
 	public String file_delete(@RequestParam("save_file_name") String save_file_name) {
