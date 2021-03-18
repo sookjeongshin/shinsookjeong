@@ -31,8 +31,7 @@
    	   <div class="row">
           <div class="col-12"><!-- 부트스트랩의 디자인 클래스 row -->
     		 <!-- form start -->
-              <form name="write_form" action="/admin/member/member_write" method="post">
-              
+              <form emcType="multipart/form-data" name="write_form" action="/admin/member/member_write" method="post">
 			<div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">CREATE Member</h3>
@@ -101,6 +100,14 @@
   <!-- /.content-wrapper -->
 
 <%@ include file="../include/footer.jsp"%>
+<!-- 첨부파일 부트스트랩 디자인 JS -->
+<script src="/resources/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- 첨부파일 선택한 내용 출력 실행 -->
+<script>
+$(document).ready(function () {
+  bsCustomFileInput.init();
+});
+</script>
 <script>
 $(document).ready(function(){
 	$("#user_id").bind("blur",function(){
