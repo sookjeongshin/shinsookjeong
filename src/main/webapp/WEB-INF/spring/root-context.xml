@@ -52,9 +52,9 @@
 	
 	<!-- CREATE TABLE 초기 1회만 실행 -->
 	
- 	<jdbc:initialize-database data-source="dataSource" ignore-failures="DROPS"> 
+ <!-- 	<jdbc:initialize-database data-source="dataSource" ignore-failures="DROPS"> 
 		<jdbc:script location="classpath:/db/embeded_hsql_file.sql" /> 
-	</jdbc:initialize-database>
+	</jdbc:initialize-database> -->
 	 
 	
 	<!-- jdbc:hsqldb:mem:dataSource / jdbc:hsqldb:file:c:/egov/workspace/embeded/hsql_file.db;hsqldb.lock_file=false -->
